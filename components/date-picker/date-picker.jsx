@@ -113,7 +113,7 @@ const propTypes = {
 	/**
 	 * An [Input](http://react.lightningdesignsystem.com/components/inputs/) component. The props from this `Input` component will be merged and override any default props. See [Component composition with prop spread](https://github.com/salesforce/design-system-react/blob/master/docs/codebase-overview.md#component-composition-with-prop-spread) for more information on this methodology.
 	 */
-	input: PropTypes.node,
+	//input: PropTypes.node,
 	/**
 	 * Forces the dropdown to be open or closed. See controlled/uncontrolled callback/prop pattern for more on suggested use view [Concepts and Best Practices](https://github.com/salesforce-ux/design-system-react/blob/master/CONTRIBUTING.md#concepts-and-best-practices)
 	 */
@@ -265,7 +265,7 @@ class Datepicker extends React.Component {
 			isOpenFromIcon: false,
 			value: props.value,
 			formattedValue: initDate || '',
-			inputValue: initDate || '',
+			//inputValue: initDate || '',
 		};
 
 		this.generatedId = shortid.generate();
@@ -283,7 +283,7 @@ class Datepicker extends React.Component {
 				this.setState({
 					value: nextProps.value,
 					formattedValue: this.props.formatter(nextProps.value),
-					inputValue: this.props.formatter(nextProps.value),
+					//inputValue: this.props.formatter(nextProps.value),
 				});
 			}
 		}
@@ -390,7 +390,7 @@ class Datepicker extends React.Component {
 		 * 4. CURRENT API: Use composition with props spread merge from `input` prop.
 		 * */
 
-		const defaultInputProps = {
+		/*const defaultInputProps = {
 			iconRight: (
 				<InputIcon
 					// Remove || for assistiveText at next breaking change
@@ -419,7 +419,7 @@ class Datepicker extends React.Component {
 			},
 			onKeyDown: this.handleKeyDown,
 			value: this.state.inputValue,
-		};
+		};*/
 
 		// eslint-disable react/prop-types
 		const topLevelDeprecatedComponentProps = {
@@ -433,7 +433,7 @@ class Datepicker extends React.Component {
 		// eslint-enable react/prop-types
 
 		const childrenProps = this.props.children && this.props.children.props;
-		const childrenPropInputProps = {
+		/*const childrenPropInputProps = {
 			...childrenProps,
 			onClick: () => {
 				this.openDialog();
@@ -463,13 +463,13 @@ class Datepicker extends React.Component {
 		if (!this.state.inputRendered) {
 			this.setState({ inputRendered: true });
 		}
-	};
+	};*/
 
 	handleCalendarChange = (event, { date }) => {
 		this.setState({
 			value: date,
 			formattedValue: this.props.formatter(date),
-			inputValue: this.props.formatter(date),
+			//inputValue: this.props.formatter(date),
 		});
 
 		this.handleRequestClose();
@@ -500,11 +500,11 @@ class Datepicker extends React.Component {
 		}
 	};
 
-	handleInputChange = (event) => {
+	/*handleInputChange = (event) => {
 		this.setState({
 			formattedValue: event.target.value,
 			inputValue: event.target.value,
-		});
+		});*/
 
 		const date = this.props.parser(event.target.value);
 
@@ -609,7 +609,7 @@ class Datepicker extends React.Component {
 				...inputProps,
 			})
 		) : (
-			<Input {...inputProps} />
+			//<Input {...inputProps} />
 		);
 
 		return (
@@ -624,7 +624,7 @@ class Datepicker extends React.Component {
 					this.props.triggerClassName
 				)}
 			>
-				{inputToRender}
+				//{inputToRender}
 				{this.getDialog({ labels, assistiveText })}
 			</div>
 		);
